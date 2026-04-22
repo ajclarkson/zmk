@@ -6,8 +6,8 @@
 #define LILY58_STANDARD_LABELS
 
 #include <behaviors.dtsi>
-#include <zmk-helpers/helper.h>
-#include <zmk-helpers/key-labels/lily58.h>
+#include "zmk-helpers/helper.h"
+#include "zmk-helpers/key-labels/lily58.h"
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
@@ -24,9 +24,6 @@
   tapping-term-ms = <200>;
   quick-tap-ms = <QUICK_TAP_MS>;
 };
- #define KEYS_R 21
- #define KEYS_L 32
- #define THUMBS KEYS_R KEYS_L
 /* Homerow mods */
 #define MAKE_HRM(NAME, HOLD, TAP, TRIGGER_POS)                                 \
   ZMK_HOLD_TAP(NAME, bindings = <HOLD>, <TAP>; flavor = "balanced";            \
@@ -41,7 +38,7 @@ MAKE_HRM(hlml, &mo, &kp, KEYS_R) // Left-hand HRM layer tap
 MAKE_HRM(hlmr, &mo, &kp, KEYS_L) // Right-hand HRM layer tap
 MAKE_HRM(hma, &kp, &kp, KEYS_L KEYS_R THUMBS) //  Home row behaviour but not restricted to a keyboard half
 
-
+#define LEFT_HYPER  LS(LA(LC(LGUI)))
 #define HYP_BK &hma LEFT_HYPER  BACKSPACE
 #define SHIFT_SPACE &hma LSHFT SPACE
 #define SHIFT_RET   &hma LSHFT RET
