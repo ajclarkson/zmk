@@ -3,7 +3,7 @@
  *
  * SPDX-License-Identifier: MIT
  */
-
+#define LILY58_STANDARD_LABELS
 #include <behaviors.dtsi>
 #include "zmk-helpers/helper.h"
 #include "zmk-helpers/key-labels/lily58.h"
@@ -54,7 +54,7 @@ ZMK_LAYER(Base,
   // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╮   ╭─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
        &lt 1 BSLH    &kp Z         &kp X         &kp C         &kp V         &kp B         XXX               XXX           &kp N         &kp M         &kp COMMA     &lt 4 PERIOD  &kp FSLH      &kp EQUAL
   // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                                 XXX           XXX           HYP_BK        SHIFT_SPACE       SHIFT_ENT     &lt 2 ESCAPE  XXX          XXX
+                                                 XXX           XXX           HYP_BK        SHIFT_SPACE       SHIFT_RET     &lt 2 ESCAPE  XXX          XXX
   //                                           ╰─────────────┴─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────┴─────────────╯
 )
 
