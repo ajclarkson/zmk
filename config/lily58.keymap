@@ -26,7 +26,6 @@
 };
 
 /* Homerow mods */
-
 #define MAKE_HRM(NAME, HOLD, TAP, TRIGGER_POS)                                 \
   ZMK_HOLD_TAP(NAME, bindings = <HOLD>, <TAP>; flavor = "balanced";            \
                tapping-term-ms = <280>; quick-tap-ms = <QUICK_TAP_MS>;         \
@@ -34,10 +33,12 @@
                hold-trigger-key-positions = <TRIGGER_POS>;)
 
 MAKE_HRM(hml, &kp, &kp, KEYS_R THUMBS) // Left-hand HRMs.
-MAKE_HRM(hlml, &mo, &kp, KEYS_R) // Left-hand HRM layer tap
 MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS) // Right-hand HRMs.
+
+MAKE_HRM(hlml, &mo, &kp, KEYS_R) // Left-hand HRM layer tap
 MAKE_HRM(hlmr, &mo, &kp, KEYS_L) // Right-hand HRM layer tap
 MAKE_HRM(hma, &kp, &kp, KEYS_L KEYS_R THUMBS) //  Home row behaviour but not restricted to a keyboard half
+
 
 #define HYP_BK &hma LEFT_HYPER  BACKSPACE
 #define SHIFT_SPACE &hma LSHFT SPACE
