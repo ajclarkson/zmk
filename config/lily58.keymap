@@ -13,9 +13,6 @@
 
 #define XXX &none
 #define ___ &trans
-#define KEYS_L LT0
-#define KEYS_R RT0
-#define THUMBS LH0 RH0
 /* Global defaults */
 
 #define QUICK_TAP_MS 175
