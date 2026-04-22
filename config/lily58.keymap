@@ -3,7 +3,6 @@
  *
  * SPDX-License-Identifier: MIT
  */
-#define LILY58_STANDARD_LABELS
 #include <behaviors.dtsi>
 #include "zmk-helpers/helper.h"
 #include "zmk-helpers/key-labels/lily58.h"
@@ -13,6 +12,25 @@
 
 #define XXX &none
 #define ___ &trans
+
+
+/* Not immediately obvious why this isn't passing through correctly from the helper */
+
+// All keys on the left side of the keyboard excluding thumb keys
+#define KEYS_L LT0 LT1 LT2 LT3 LT4 LT5 LN0 LN1 LN2 LN3 LN4 LN5 LM0 LM1 LM2 LM3 LM4 LM5 LBC LB0 LB1 LB2 LB3 LB4 LB5
+
+// All keys on the right side of the keyboard excluding thumb keys
+#define KEYS_R RT0 RT1 RT2 RT3 RT4 RT5 RN0 RN1 RN2 RN3 RN4 RN5 RM0 RM1 RM2 RM3 RM4 RM5 RBC RB0 RB1 RB2 RB3 RB4 RB5
+
+// Thumb cluster keys from the left side of the keyboard
+#define THUMB_L LF3 LF2 LF1 LF0
+
+// Thumb cluster keys from the right side of the keyboard
+#define THUMB_R RF0 RF1 RF2 RF3
+
+// All thumb cluster keys
+#define THUMBS THUMB_L THUMB_R
+
 /* Global defaults */
 
 #define QUICK_TAP_MS 175
@@ -37,9 +55,30 @@ MAKE_HRM(hlmr, &mo, &kp, KEYS_L) // Right-hand HRM layer tap
 MAKE_HRM(hma, &kp, &kp, KEYS_L KEYS_R THUMBS) //  Home row behaviour but not restricted to a keyboard half
 
 #define LEFT_HYPER  LS(LA(LC(LGUI)))
+
 #define HYP_BK &hma LEFT_HYPER  BACKSPACE
+
 #define SHIFT_SPACE &hma LSHFT SPACE
 #define SHIFT_RET   &hma LSHFT RET
+
+#define MAC_NEXT_WORD   LA(RIGHT)
+#define MAC_WRDN    MAC_NEXT_WORD
+
+#define MAC_PREVIOUS_WORD   LA(LEFT)
+#define MAC_WRDP    MAC_PREVIOUS_WORD
+
+#define MAC_START_OF_LINE   LG(LEFT)
+#define MAC_STTL    MAC_START_OF_LINE
+
+#define MAC_END_OF_LINE LG(RIGHT)
+#define MAC_ENDL    MAC_END_OF_LINE
+
+#define MAC_CUT LG(X)
+#define MAC_COPY    LG(C)
+#define MAC_PASTE   LG(V)
+#define MAC_UNDO    LG(Z)
+#define MAC_REDO    LG(R)
+
 
 ZMK_LAYER(Base,
   // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                               ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
