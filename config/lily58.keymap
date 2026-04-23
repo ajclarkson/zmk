@@ -142,9 +142,6 @@ MAKE_HRM(hma, &kp, &kp, KEYS_L KEYS_R THUMBS) //  Home row behaviour but not res
 // CMD+Tab swapper, requires tri-state module.
 ZMK_TRI_STATE(swapper, bindings = <&kt LGUI>, <&kp TAB>, <&kt LGUI>;
               ignored-key-positions = <>;)
-// CMD+Shift+Tab swapper reversed, requires tri-state module.
-ZMK_TRI_STATE(rswapper, bindings=<&kt LS(LGUI)>, <&kp TAB>, <&kt LS(LGUI)>;
-              ignored-key-positions = <>;)
 
 ZMK_LAYER(Base,
   // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                               ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
@@ -212,6 +209,6 @@ ZMK_LAYER(Win,
   // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╮   ╭─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
       XXX           XXX           &kp LG(N6)    &kp LG(N5)    &kp LG(N4)    XXX           XXX               XXX           XXX           &kp LS(LG(TAB)) &kp LG(TAB) XXX           XXX           XXX
   // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                                XXX           XXX           XXX           &rswapper         &swapper           XXX           XXX           XXX
+                                                XXX           XXX           XXX           XXX               &swapper           XXX           XXX           XXX
   //                                           ╰─────────────┴─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────┴─────────────╯
 )
