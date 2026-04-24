@@ -92,8 +92,6 @@
 #define THUMBS_R RH0 RH1 RH2 RH3
 #define THUMBS THUMBS_L THUMBS_R
 
-
-
 #define DEF 0
 #define NAV 1
 #define SYS 2
@@ -124,7 +122,7 @@ MAKE_HRM(hlml, &mo, &kp, KEYS_R) // Left-hand HRM layer tap
 MAKE_HRM(hlmr, &mo, &kp, KEYS_L) // Right-hand HRM layer tap
 MAKE_HRM(hma, &kp, &kp, KEYS_L KEYS_R THUMBS) //  Home row behaviour but not restricted to a keyboard half
 
-#define LEFT_HYPER  &kp LS(LA(LC(LGUI)))
+#define LEFT_HYPER  &sk LS(LA(LC(LGUI)))
 
 
 #define SHIFT_SPACE &hma LSHFT SPACE
