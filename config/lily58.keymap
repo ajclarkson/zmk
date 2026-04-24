@@ -138,6 +138,11 @@ ZMK_TRI_STATE(swapper, bindings = <&kt LGUI>, <&kp TAB>, <&kt LGUI>;
 ZMK_COMBO(sys_left, &sl SYS, LB4 LB5)
 ZMK_COMBO(sys_right, &sl SYS, RB4 RB5)
 
+// Copy/paste/cut combos on left bottom row
+ZMK_COMBO(copy, &kp LG(C), LB3 LB2)
+ZMK_COMBO(paste, &kp LG(V), LB2 LB1)
+ZMK_COMBO(cut, &kp LG(X), LB4 LB3)
+
 // Hold: Shift | Tap: Enter | Shift+Tap/Double-tap: Caps word.
 #define MAGIC_SHIFT &magic_shift LSHFT 0
 ZMK_HOLD_TAP(magic_shift, bindings = <&kp>, <&magic_shift_tap>;
@@ -171,7 +176,7 @@ ZMK_LAYER(Base,
   // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╮   ╭─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
       &lt SYS BSLH  &kp Z         &kp X         &kp C         &kp V         &kp B         XXX               XXX           &kp N         &kp M         &kp COMMA     &lt 4 PERIOD  &kp FSLH      &kp EQUAL
   // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                                XXX           LEFT_HYPER    &lt NAV BSPC  SHIFT_SPACE       MAGIC_SHIFT   SMART_NUM     XXX           XXX
+                                                XXX           LEFT_HYPER    &lt WIN BSPC  &lt NAV SPACE     MAGIC_SHIFT   SMART_NUM     &kp ESC           XXX
   //                                           ╰─────────────┴─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────┴─────────────╯
 )
 
