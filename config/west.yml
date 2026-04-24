@@ -23,5 +23,8 @@ manifest:
     - name: zmk-tri-state
       remote: urob
       path: modules/zmk/tri-state
+    - name: zmk-adaptive-key
+      remote: urob
+      path: modules/zmk/adaptive-key
   self:
     path: config
