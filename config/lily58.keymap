@@ -122,9 +122,9 @@ MAKE_HRM(hlml, &mo, &kp, KEYS_R) // Left-hand HRM layer tap
 MAKE_HRM(hlmr, &mo, &kp, KEYS_L) // Right-hand HRM layer tap
 MAKE_HRM(hma, &kp, &kp, KEYS_L KEYS_R THUMBS) //  Home row behaviour but not restricted to a keyboard half
 
-ZMK_HOLD_TAP(hyper_key, bindings = <&kp LS(LA(LC(LGUI)))>, <&none>;
-             flavor = "hold-preferred"; tapping-term-ms = <250>;)
-#define LEFT_HYPER &hyper_key
+ZMK_HOLD_TAP(hyper_key, bindings = <&kp>, <&kp>;
+             flavor = "tap-preferred"; tapping-term-ms = <250>; quick-tap-ms = <0>;)
+#define LEFT_HYPER &hyper_key LS(LA(LC(LGUI))) ESC
 
 
 #define SHIFT_SPACE &hma LSHFT SPACE
