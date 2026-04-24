@@ -12,12 +12,16 @@ manifest:
     - name: zmk
       remote: zmkfirmware
       import: app/west.yml
-      revision: v0.3
+
+      #urob's modules
     - name: zmk-helpers
       remote: urob
-      revision: v0.3
+      path: modules/zmk/helpers
+    - name: zmk-auto-layer
+      remote: urob
+      path: modules/zmk/auto-layer
     - name: zmk-tri-state
       remote: urob
-      revision: v0.3
+      path: modules/zmk/tri-state
   self:
     path: config
