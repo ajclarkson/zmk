@@ -149,19 +149,18 @@ MAKE_HRM(hma, &kp, &kp, KEYS_L KEYS_R THUMBS) //  Home row behaviour but not res
 ZMK_TRI_STATE(swapper, bindings = <&kt LGUI>, <&kp TAB>, <&kt LGUI>;
               ignored-key-positions = <>;)
 
-// Tap: repeat after alpha, else sticky-shift |
+// Tap: enter, else sticky-shift |
 // Shift + tap/ double-tap: caps-word | Hold: shift.
 #define MAGIC_SHIFT &magic_shift LSHFT 0
 ZMK_HOLD_TAP(magic_shift, bindings = <&kp>, <&magic_shift_tap>;
              flavor = "balanced"; tapping-term-ms = <200>;
              quick-tap-ms = <QUICK_TAP_MS>;)
-ZMK_MOD_MORPH(magic_shift_tap, bindings = <&shift_repeat>, <&caps_word>;
+ZMK_MOD_MORPH(magic_shift_tap, bindings = <&shift_enter>, <&caps_word>;
               mods = <(MOD_LSFT)>;)
 ZMK_ADAPTIVE_KEY(
-    shift_repeat, bindings = <&sk LSHFT>;
+    shift_enter, bindings = <&sk LSHFT>;
     repeat {
-      trigger-keys = <A B C D E F G H I J K L M N O P Q R S T U V W X Y Z>;
-      bindings = <&key_repeat>;
+      bindings = <&kp ENTER>;
       max-prior-idle-ms = <1200>;
       strict-modifiers;
     };)
