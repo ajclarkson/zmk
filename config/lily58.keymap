@@ -5,8 +5,8 @@
  */
 #include <behaviors.dtsi>
 #define LILY58_STANDARD_LABELS
-#include "zmk-helpers/key-labels/lily58.h"
 #include "zmk-helpers/helper.h"
+#include "zmk-helpers/key-labels/lily58.h"
 #include <behaviors/num_word.dtsi> // Requires zmk-auto-layer module.
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
