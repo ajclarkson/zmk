@@ -126,22 +126,9 @@ MAKE_HRM(hma, &kp, &kp, KEYS_L KEYS_R THUMBS) //  Home row behaviour but not res
 
 
 #define SHIFT_SPACE &hma LSHFT SPACE
-#define SHIFT_RET   &hma LSHFT RET
 
-#define MAC_NEXT_WORD   LA(RIGHT)
-#define MAC_WRDN    MAC_NEXT_WORD
-
-#define MAC_PREVIOUS_WORD   LA(LEFT)
-#define MAC_WRDP    MAC_PREVIOUS_WORD
-
-#define MAC_START_OF_LINE   LG(LEFT)
-#define MAC_STTL    MAC_START_OF_LINE
-
-#define MAC_END_OF_LINE LG(RIGHT)
-#define MAC_ENDL    MAC_END_OF_LINE
-
-#define NAV_BSPC  &mt LC(BSPC) BSPC  // Tap: bspc  | Long-tap: delete word bwd.
-#define NAV_DEL   &mt LC(DEL)  DEL   // Tap: del   | Long-tap: delete word fwd.
+#define NAV_BSPC  &mt LA(BSPC) BSPC  // Tap: bspc  | Long-tap: delete word bwd.
+#define NAV_DEL   &mt LA(DEL)  DEL   // Tap: del   | Long-tap: delete word fwd.
 
 // CMD+Tab swapper, requires tri-state module.
 ZMK_TRI_STATE(swapper, bindings = <&kt LGUI>, <&kp TAB>, <&kt LGUI>;
