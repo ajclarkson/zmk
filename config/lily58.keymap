@@ -155,12 +155,10 @@ ZMK_TRI_STATE(swapper, bindings = <&kt LGUI>, <&kp TAB>, <&kt LGUI>;
 ZMK_HOLD_TAP(magic_shift, bindings = <&kp>, <&magic_shift_tap>;
               flavor = "balanced"; tapping-term-ms = <200>;
               quick-tap-ms = <QUICK_TAP_MS>;)
-ZMK_TAP_DANCE(magic_shift_tap, bindings = <&magic_shift_single>, <&magic_shift_double>;
+ZMK_TAP_DANCE(magic_shift_tap, bindings = <&magic_shift_single>, <&caps_word>;
               tapping-term-ms = <200>;)
 ZMK_MOD_MORPH(magic_shift_single, bindings = <&kp ENTER>, <&caps_word>;
               mods = <(MOD_LSFT)>;)
-ZMK_BEHAVIOR(magic_shift_double, key-press,
-             bindings = <&caps_word>;)
 
 &caps_word { // Mods deactivate caps-word, requires PR #1451. [TODO: rebase]
   /delete-property/ ignore-modifiers;
