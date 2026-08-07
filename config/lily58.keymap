@@ -111,7 +111,7 @@
 /* Homerow mods */
 #define MAKE_HRM(NAME, HOLD, TAP, TRIGGER_POS)                                 \
   ZMK_HOLD_TAP(NAME, bindings = <HOLD>, <TAP>; flavor = "balanced";            \
-               tapping-term-ms = <280>; quick-tap-ms = <QUICK_TAP_MS>;         \
+               tapping-term-ms = <320>; quick-tap-ms = <QUICK_TAP_MS>;         \
                hold-trigger-on-release;                                       \
                hold-trigger-key-positions = <TRIGGER_POS>;)
 
@@ -121,6 +121,13 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS) // Right-hand HRMs.
 MAKE_HRM(hlml, &mo, &kp, KEYS_R) // Left-hand HRM layer tap
 MAKE_HRM(hlmr, &mo, &kp, KEYS_L) // Right-hand HRM layer tap
 MAKE_HRM(hma, &kp, &kp, KEYS_L KEYS_R THUMBS) //  Home row behaviour but not restricted to a keyboard half
+
+// Tap-preferred: only becomes a hold if held past tapping-term, ignoring
+// interrupting keys, so rolling off space into the next word never
+// accidentally activates Nav.
+ZMK_HOLD_TAP(lt_space, bindings = <&mo>, <&kp>; flavor = "tap-preferred";
+             tapping-term-ms = <200>; quick-tap-ms = <QUICK_TAP_MS>;)
+#define NAV_SPACE &lt_space NAV SPACE
 
 #define LEFT_HYPER &mt LC(LA(LS(LGUI))) ESC
 
@@ -174,7 +181,7 @@ ZMK_LAYER(Base,
   // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╮   ╭─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
       &lt SYS BSLH  &kp Z         &kp X         &kp C         &kp V         &kp B         XXX               XXX           &kp N         &kp M         &kp COMMA     &lt WIN PERIOD &kp FSLH      &kp EQUAL
   // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                                XXX           LEFT_HYPER    &lt WIN BSPC  &lt NAV SPACE     MAGIC_SHIFT   SMART_NUM     &kp ESC           XXX
+                                                XXX           LEFT_HYPER    &lt WIN BSPC  NAV_SPACE         MAGIC_SHIFT   SMART_NUM     &kp ESC           XXX
   //                                           ╰─────────────┴─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────┴─────────────╯
 )
 
