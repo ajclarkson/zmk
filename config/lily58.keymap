@@ -150,6 +150,9 @@ ZMK_COMBO(copy, &kp LG(C), LB3 LB2)
 ZMK_COMBO(paste, &kp LG(V), LB2 LB1)
 ZMK_COMBO(cut, &kp LG(X), LB4 LB3)
 
+// Tmux leader (Ctrl+A) on right middle row: L + Semi
+ZMK_COMBO(tmux_leader, &kp LC(A), RM3 RM4)
+
 // Hold: Shift | Tap: Enter | Double-tap: Caps word | Shift+Tap: Shift+Enter.
 #define MAGIC_SHIFT &magic_shift LSHFT 0
 ZMK_HOLD_TAP(magic_shift, bindings = <&kp>, <&magic_shift_tap>;
