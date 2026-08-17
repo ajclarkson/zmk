@@ -131,6 +131,10 @@ ZMK_HOLD_TAP(lt_space, bindings = <&mo>, <&kp>; flavor = "tap-preferred";
 
 #define LEFT_HYPER &mt LC(LA(LS(LGUI))) ESC
 
+// Ctrl+Alt+Shift (no Cmd) — unlikely to collide with anything, used for
+// custom Raycast window-management shortcuts on the Win layer.
+#define MEH(key) LC(LA(LS(key)))
+
 
 #define SHIFT_SPACE &hma LSHFT SPACE
 
@@ -265,7 +269,8 @@ ZMK_LAYER(Win,
   // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                               ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
       XXX           XXX           XXX           XXX           XXX           XXX                                           XXX           XXX           XXX           XXX           XXX           XXX
   // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                               ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-      XXX           XXX           XXX           XXX           XXX           XXX                                           XXX           XXX           XXX           XXX           XXX           XXX
+  // Window management (Raycast, Meh = Ctrl+Alt+Shift): 1st/3 1st/2 1st-2/3 · Max | Ctr70% Last-2/3 · Last/2 Last/3
+      XXX           &kp MEH(Q)    &kp MEH(W)    &kp MEH(E)    XXX           &kp MEH(T)                                    &kp MEH(Y)    &kp MEH(U)    XXX           &kp MEH(O)    &kp MEH(P)    XXX
   // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                               ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
       XXX           XXX           &kp LG(N4)    &kp LG(N5)    &kp LG(N6)    XXX                                           &kp LS(LG(LBKT)) &kp LS(LG(GRAVE)) XXX          XXX           &kp LS(LG(RBKT)) XXX
   // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╮   ╭─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
