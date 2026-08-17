@@ -156,11 +156,13 @@ ZMK_COMBO(tmux_leader, &kp LC(A), RM3 RM4)
 // Backspace on right middle row: J + K
 ZMK_COMBO(combo_bspc, &kp BSPC, RM1 RM2)
 
-// Tab on left middle row: D + F
-ZMK_COMBO(combo_tab, &kp TAB, LM3 LM4)
+// Tab on left middle row: D + F (wider timeout: default COMBO_TERM of 30ms is too
+// tight for this roll, and F is shared with combo_caps_word below)
+ZMK_COMBO(combo_tab, &kp TAB, LM3 LM4, -1, 50)
 
-// Caps word on the two shift homerow mods: F + J
-ZMK_COMBO(combo_caps_word, &caps_word, LM4 RM1)
+// Caps word on the two shift homerow mods: F + J (cross-hand, needs an even
+// wider timeout than same-hand combos to land reliably)
+ZMK_COMBO(combo_caps_word, &caps_word, LM4 RM1, -1, 60)
 
 // Hold: Shift | Tap: Enter | Double-tap: Caps word | Shift+Tap: Shift+Enter.
 #define MAGIC_SHIFT &magic_shift LSHFT 0
