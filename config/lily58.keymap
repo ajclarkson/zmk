@@ -168,6 +168,10 @@ ZMK_COMBO(combo_del, &kp DEL, RM2 RM3, DEF)
 // adjacent-finger pair like combo_bspc, so default timeout is fine.
 ZMK_COMBO(combo_tab, &kp TAB, LM1 LM2, DEF)
 
+// Undo on left middle row: S + A (LM3=S, LM4=A), continuing the outward
+// chain from combo_tab (F+D), mirroring combo_bspc/combo_del on the right.
+ZMK_COMBO(combo_undo, &kp LG(Z), LM4 LM3, DEF)
+
 // Caps word on the two shift homerow mods: F + J (LM1=F, see note above).
 // Cross-hand, so it gets a wider timeout than same-hand combos.
 ZMK_COMBO(combo_caps_word, &caps_word, LM1 RM1, DEF, 40)
@@ -227,7 +231,7 @@ ZMK_LAYER(Nav,
   // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                               ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
       &kp F1        &kp F2        &kp F3        &kp F4        &kp F5        &kp F6                                        &kp F7        &kp F8        &kp F9        &kp F10       &kp F11       &kp F12
   // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                               ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-      XXX           XXX           XXX           XXX           XXX           XXX                                           &kp LC(A)     XXX           XXX           &kp LC(E)     XXX           XXX
+      XXX           XXX           XXX           XXX           XXX           XXX                                           &kp LC(A)     &kp PG_DN     &kp PG_UP     &kp LC(E)     XXX           XXX
   // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                               ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
       XXX           &kp LCTRL     &kp LALT      &kp LGUI      &kp LSHFT     XXX                                           &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &kp K_VOL_UP  XXX
   // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╮   ╭─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
@@ -267,10 +271,11 @@ ZMK_LAYER(Sym,
 
 ZMK_LAYER(Win,
   // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                               ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-      XXX           XXX           XXX           XXX           XXX           XXX                                           XXX           XXX           XXX           XXX           XXX           XXX
+  // Cmd+Shift+4 lives on the literal "4" key — mnemonic matches the macOS shortcut.
+      XXX           XXX           XXX           XXX           &kp LS(LG(N4)) XXX                                          XXX           XXX           XXX           XXX           XXX           XXX
   // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                               ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-  // Window management (Raycast, Meh = Ctrl+Alt+Shift): 1st/3 1st/2 1st-2/3 · Max | Ctr70% Last-2/3 · Last/2 Last/3
-      XXX           &kp MEH(Q)    &kp MEH(W)    &kp MEH(E)    XXX           &kp MEH(T)                                    &kp MEH(Y)    &kp MEH(U)    XXX           &kp MEH(O)    &kp MEH(P)    XXX
+  // Window management (Raycast, Meh = Ctrl+Alt+Shift): 1st/3 1st/2 1st-2/3 · Max | Ctr70% · Last-2/3 Last/2 Last/3
+      XXX           &kp MEH(Q)    &kp MEH(W)    &kp MEH(E)    XXX           &kp MEH(T)                                    &kp MEH(Y)    XXX           &kp MEH(I)    &kp MEH(O)    &kp MEH(P)    XXX
   // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                               ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
       XXX           XXX           &kp LG(N4)    &kp LG(N5)    &kp LG(N6)    XXX                                           &kp LS(LG(LBKT)) &kp LS(LG(GRAVE)) XXX          XXX           &kp LS(LG(RBKT)) XXX
   // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╮   ╭─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
