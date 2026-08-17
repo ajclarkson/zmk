@@ -134,9 +134,6 @@ ZMK_HOLD_TAP(lt_space, bindings = <&mo>, <&kp>; flavor = "tap-preferred";
 
 #define SHIFT_SPACE &hma LSHFT SPACE
 
-#define NAV_BSPC  &mt LA(BSPC) BSPC  // Tap: bspc  | Long-tap: delete word bwd.
-#define NAV_DEL   &mt LA(DEL)  DEL   // Tap: del   | Long-tap: delete word fwd.
-
 // CMD+Tab swapper, requires tri-state module.
 ZMK_TRI_STATE(swapper, bindings = <&kt LGUI>, <&kp TAB>, <&kt LGUI>;
               ignored-key-positions = <>;)
@@ -226,7 +223,7 @@ ZMK_LAYER(Nav,
   // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮                               ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
       &kp F1        &kp F2        &kp F3        &kp F4        &kp F5        &kp F6                                        &kp F7        &kp F8        &kp F9        &kp F10       &kp F11       &kp F12
   // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                               ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-      XXX           XXX           XXX           XXX           XXX           XXX                                           XXX           NAV_BSPC      XXX           NAV_DEL       XXX           XXX
+      XXX           XXX           XXX           XXX           XXX           XXX                                           &kp LC(A)     XXX           XXX           &kp LC(E)     XXX           XXX
   // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                               ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
       XXX           &kp LCTRL     &kp LALT      &kp LGUI      &kp LSHFT     XXX                                           &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &kp K_VOL_UP  XXX
   // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╮   ╭─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
