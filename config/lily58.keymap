@@ -171,21 +171,21 @@ ZMK_COMBO(combo_tab, &kp TAB, LM1 LM2, DEF)
 // Cross-hand, so it gets a wider timeout than same-hand combos.
 ZMK_COMBO(combo_caps_word, &caps_word, LM1 RM1, DEF, 40)
 
-// Tmux pane commands: prefix (Ctrl+A) followed by the pane-command key.
+// Tmux pane commands: prefix (Ctrl+Space) followed by the pane-command key.
 // Win-layer only, so these live entirely under WIN_TMUX_LEADER and never
 // compete with normal typing or the Base-layer cut/copy/paste combos.
-ZMK_MACRO(tmux_vsplit, wait-ms = <30>; tap-ms = <30>;
-          bindings = <&kp LC(A) &kp MINUS>;)
-ZMK_MACRO(tmux_hsplit, wait-ms = <30>; tap-ms = <30>;
-          bindings = <&kp LC(A) &kp PIPE>;)
+ZMK_MACRO(tmux_split_side_by_side, wait-ms = <30>; tap-ms = <30>;
+          bindings = <&kp LC(SPACE) &kp PIPE>;)
+ZMK_MACRO(tmux_split_stacked, wait-ms = <30>; tap-ms = <30>;
+          bindings = <&kp LC(SPACE) &kp MINUS>;)
 ZMK_MACRO(tmux_kill_pane, wait-ms = <30>; tap-ms = <30>;
-          bindings = <&kp LC(A) &kp X>;)
+          bindings = <&kp LC(SPACE) &kp X>;)
 
-// Vertical split (stacked): A + S
-ZMK_COMBO(combo_tmux_vsplit, &tmux_vsplit, LM4 LM3, WIN)
+// Side-by-side split: A + S
+ZMK_COMBO(combo_tmux_split_side_by_side, &tmux_split_side_by_side, LM4 LM3, WIN)
 
-// Horizontal split (side by side): W + S
-ZMK_COMBO(combo_tmux_hsplit, &tmux_hsplit, LT3 LM3, WIN)
+// Stacked split: W + S
+ZMK_COMBO(combo_tmux_split_stacked, &tmux_split_stacked, LT3 LM3, WIN)
 
 // Kill pane: Z + X
 ZMK_COMBO(combo_tmux_kill_pane, &tmux_kill_pane, LB4 LB3, WIN)
@@ -202,9 +202,9 @@ ZMK_TAP_DANCE(enter_dance, bindings = <&kp ENTER>, <&num_word NUM>;
   /delete-property/ ignore-modifiers;
 };
 
-// Hold: Win layer | Tap: Ctrl+A (tmux leader). Mirrors the left thumb
+// Hold: Win layer | Tap: Ctrl+Space (tmux leader). Mirrors the left thumb
 // cluster's &lt WIN BSPC.
-#define WIN_TMUX_LEADER &lt WIN LC(A)
+#define WIN_TMUX_LEADER &lt WIN LC(SPACE)
 
 /* Layers */
 
