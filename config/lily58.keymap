@@ -150,20 +150,25 @@ ZMK_COMBO(copy, &kp LG(C), LB3 LB2)
 ZMK_COMBO(paste, &kp LG(V), LB2 LB1)
 ZMK_COMBO(cut, &kp LG(X), LB4 LB3)
 
+// These four combos are Base-layer only (DEF): J/K/L are arrows on Nav,
+// F/D are digits on Num and Ctrl/Alt on Nav, and F/D/J/K/L are symbols on
+// Sym — letting them fire on those layers would hijack normal use there
+// (e.g. rolling "45" on Num misfiring as Tab, or Down+Up on Nav as Bspc).
+
 // Backspace on right middle row: J + K
-ZMK_COMBO(combo_bspc, &kp BSPC, RM1 RM2)
+ZMK_COMBO(combo_bspc, &kp BSPC, RM1 RM2, DEF)
 
 // Forward delete on right middle row: K + L
-ZMK_COMBO(combo_del, &kp DEL, RM2 RM3)
+ZMK_COMBO(combo_del, &kp DEL, RM2 RM3, DEF)
 
 // Tab on left middle row: D + F (LM1=F, LM2=D — LM index counts inward from
 // the edge, opposite of letter order, so this is not LM3 LM4). Same-hand
 // adjacent-finger pair like combo_bspc, so default timeout is fine.
-ZMK_COMBO(combo_tab, &kp TAB, LM1 LM2)
+ZMK_COMBO(combo_tab, &kp TAB, LM1 LM2, DEF)
 
 // Caps word on the two shift homerow mods: F + J (LM1=F, see note above).
 // Cross-hand, so it gets a wider timeout than same-hand combos.
-ZMK_COMBO(combo_caps_word, &caps_word, LM1 RM1, 255, 40)
+ZMK_COMBO(combo_caps_word, &caps_word, LM1 RM1, DEF, 40)
 
 // Tap: Enter | Double-tap: num-word | Hold: num-layer.
 // Caps word moved to the F+J combo, so this key no longer needs to hold Shift.
