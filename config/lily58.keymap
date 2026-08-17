@@ -159,6 +159,9 @@ ZMK_COMBO(combo_bspc, &kp BSPC, RM1 RM2)
 // Tab on left middle row: D + F
 ZMK_COMBO(combo_tab, &kp TAB, LM3 LM4)
 
+// Caps word on the two shift homerow mods: F + J
+ZMK_COMBO(combo_caps_word, &caps_word, LM4 RM1)
+
 // Hold: Shift | Tap: Enter | Double-tap: Caps word | Shift+Tap: Shift+Enter.
 #define MAGIC_SHIFT &magic_shift LSHFT 0
 ZMK_HOLD_TAP(magic_shift, bindings = <&kp>, <&magic_shift_tap>;
