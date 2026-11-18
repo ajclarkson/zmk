@@ -195,13 +195,13 @@ ZMK_COMBO(combo_tmux_split_stacked, &tmux_split_stacked, LT3 LM3, WIN)
 // Kill pane: Z + X
 ZMK_COMBO(combo_tmux_kill_pane, &tmux_kill_pane, LB4 LB3, WIN)
 
-// Tap: Enter | Double-tap: num-word | Hold: num-layer.
-// Caps word moved to the F+J combo, so this key no longer needs to hold Shift.
-#define SMART_ENTER &smart_enter NUM 0
-ZMK_HOLD_TAP(smart_enter, bindings = <&mo>, <&enter_dance>; flavor = "balanced";
-             tapping-term-ms = <200>; quick-tap-ms = <QUICK_TAP_MS>;)
-ZMK_TAP_DANCE(enter_dance, bindings = <&kp ENTER>, <&num_word NUM>;
-              tapping-term-ms = <200>;)
+// Tap: Enter | Hold: num-layer. A plain layer-tap (no tap-dance) so a lone
+// Enter fires immediately instead of waiting out a double-tap window.
+#define NUM_ENTER &lt NUM ENTER
+
+// Num-word on D + K, the cross-hand counterpart of F + J (caps word).
+// Same 40ms timeout as caps word since it's cross-hand. Base-layer only.
+ZMK_COMBO(combo_num_word, &num_word NUM, LM2 RM2, DEF, 40)
 
 &caps_word { // Mods deactivate caps-word, requires PR #1451. [TODO: rebase]
   /delete-property/ ignore-modifiers;
@@ -223,7 +223,7 @@ ZMK_LAYER(Base,
   // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╮   ╭─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
       &lt SYS BSLH  &kp Z         &kp X         &kp C         &kp V         &kp B         XXX               XXX           &kp N         &kp M         &kp COMMA     &kp PERIOD    &kp FSLH      &kp EQUAL
   // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                                XXX           LEFT_HYPER    &lt WIN BSPC  NAV_SPACE         SMART_ENTER   WIN_TMUX_LEADER &kp ESC         XXX
+                                                XXX           LEFT_HYPER    &lt WIN BSPC  NAV_SPACE         NUM_ENTER     WIN_TMUX_LEADER &kp ESC         XXX
   //                                           ╰─────────────┴─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────┴─────────────╯
 )
 
@@ -291,9 +291,9 @@ ZMK_LAYER(Num,
   // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                               ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
       ___           ___           &kp N7        &kp N8        &kp N9        ___                                           ___           ___           ___           ___           ___           ___
   // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤                               ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-      ___           &kp N0        &kp N4        &kp N5        &kp N6        ___                                           ___           ___           ___           ___           ___           ___
+      ___           &kp PERIOD    &kp N4        &kp N5        &kp N6        ___                                           ___           ___           ___           ___           ___           ___
   // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────╮   ╭─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-      ___           ___           &kp N1        &kp N2        &kp N3        ___           ___               ___           ___           ___           ___           ___           ___           ___
+      ___           &kp N0        &kp N1        &kp N2        &kp N3        ___           ___              ___           ___           ___           ___           ___           ___           ___
   // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
                                                 ___           ___           ___           ___               ___           ___           ___           ___
   //                                           ╰─────────────┴─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────┴─────────────╯
